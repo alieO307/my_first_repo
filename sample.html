@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS: Hack Night 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(15, 15, 15);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(teal, purple, pink);
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        button {
+            background-color: rgb(230, 50, 164);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .about, .schedule, .venue, .rsvp {
+            padding: 30px;
+            margin: 20px;
+            background-color: rgb(71, 71, 71);
+            border-radius: 10px;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgb(85, 85, 85);
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            margin-top: 20px;
+            background-color: rgb(0, 204, 255);
+        }
+
+        #arrowTop {
+            height: 40px;
+            width: 40px;
+            background-color: rgb(230, 50, 164);
+            color: white;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 24px;
+            display: none; /* Hide the button by default */
+        }
+
+        #arrowTop::before {
+            content: '▲'; /* Arrow icon */
+        }
+    </style>    
+</head>
+<body>
+    <header>
+        <h1>Hack Night 2024</h1>
+        <h2>Code, Compete, and Conquer!</h2>
+        <button onclick="document.getElementById('rsvp-form').scrollIntoView()">Join the Hack</button>
+    </header>
+
+    <div class="about">
+        <h2>About the Event</h2>
+        <p>Get ready for a hackathon with coding challenges, pizza, and epic prizes! Whether you're a first-year or a senior, everyone’s welcome to build, hang-out, and share their ideas.</p>
+        <h3>Event Highlights:</h3>
+        <ul>
+            <li>Coding Challenges: Work in teams to solve problems and win prizes.</li>
+            <li>Socialize: Get to know your fellow classmates.</li>
+            <li>Games: Take a break with a game tournament.</li>
+        </ul>
+    </div>
+
+    <div class="schedule">
+        <h2>Hackathon Schedule</h2>
+        <ul>
+            <li>2:00 PM – Doors Open & Team Formation</li>
+            <li>2:45 PM – Coding Challenge Begins</li>
+            <li>3:45 PM – Pizza Break & Networking</li>
+            <li>4:15 PM - Continue Coding Challenge</li>
+            <li>6:15 PM – Game Tournament</li>
+            <li>7:30 PM – Final Presentations & Judging</li>
+            <li>8:00 PM – Prizes Announced!</li>
+        </ul>
+    </div>
+
+    <div class="venue">
+        <h2>Venue Details</h2>
+        <p>Location: PS 325, Casper College Campus</p>
+        <p>Contact: name.someone@mycc.caspercollege.edu</p>
+    </div>
+    
+    <div class="rsvp">
+        <h2>RSVP/Registration</h2>
+        <form id="rsvp-form">
+            <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="team">Team Preference:</label></td>
+                    <td>
+                        <select id="team">
+                            <option value="frontend">Frontend Ninja</option>
+                            <option value="backend">Backend Guru</option>
+                            <option value="fullstack">Full Stack Wizard</option>
+                            <option value="beginner">Complete Beginner</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit">Submit RSVP</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+    <div id="arrowTop"></div>
+    
+    <script>
+        // Get the scroll to top button element
+        const arrowTop = document.getElementById("arrowTop");
+
+        // When the user clicks on the button, scroll to the top of the document
+        arrowTop.onclick = function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth" // Smooth scroll effect
+            });
+        };
+
+        // Show the button when the user scrolls down 100px from the top of the document
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                arrowTop.style.display = "flex"; // Show button
+            } else {
+                arrowTop.style.display = "none"; // Hide button
+            }
+        };
+    </script>
+</body>
+</html>
